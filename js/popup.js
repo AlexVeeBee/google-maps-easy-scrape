@@ -117,20 +117,33 @@ const saveScrapeData = async (data) => {
     const m_body = `
     <p>This is the data that will be saved:</p>
     <table class="table table-striped">
-        ${data.map((item) => {
-            return `
+        <thead>
             <tr>
-                <td>${item.title        || 'N/A'}</td>
-                <td>${item.rating       || 'N/A'}</td>
-                <td>${item.reviewCount  || 'N/A'}</td>
-                <td>${item.phone        || 'N/A'}</td>
-                <td>${item.industry     || 'N/A'}</td>
-                <td>${item.address      || 'N/A'}</td>
-                <td>${item.companyUrl   || 'N/A'}</td>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Reviews</th>
+                <th>Phone</th>
+                <th>Industry</th>
+                <th>Address</th>
+                <th>Website</th>
             </tr>
-            `;
-        }
-        ).join('')}
+        </thead>
+        <body>
+            ${data.map((item) => {
+                return `
+                <tr>
+                    <td>${item.title        || 'N/A'}</td>
+                    <td>${item.rating       || 'N/A'}</td>
+                    <td>${item.reviewCount  || 'N/A'}</td>
+                    <td>${item.phone        || 'N/A'}</td>
+                    <td>${item.industry     || 'N/A'}</td>
+                    <td>${item.address      || 'N/A'}</td>
+                    <td>${item.companyUrl   || 'N/A'}</td>
+                </tr>
+                `;
+            }
+            ).join('')}
+        </body>
     </table>
     `;
 
